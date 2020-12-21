@@ -32,20 +32,29 @@ type AppOptions struct {
 
 // NewApp initialize a new bluetooth service (app)
 func NewApp(options AppOptions) (*App, error) {
+	return NewAppFull(options, false)
+}
+
+// NewApp initialize a new bluetooth service (app)
+// with explicit UUIDs is desired
+func NewAppFull(options AppOptions, full bool) (*App, error) {
 
 	app := new(App)
+
 	if options.AdapterID == "" {
 		return nil, errors.New("options.AdapterID is required")
 	}
 
-	app.Options = options
+	if ! full {
+		if app.Options.UUIDSuffix == "" {
+			app.Options.UUIDSuffix = "-0000-1000-8000-00805F9B34FB"
+		}
+		if app.Options.UUID == "" {
+			app.Options.UUID = "1234"
+		}
+	}
 
-	if app.Options.UUIDSuffix == "" {
-		app.Options.UUIDSuffix = "-0000-1000-8000-00805F9B34FB"
-	}
-	if app.Options.UUID == "" {
-		app.Options.UUID = "1234"
-	}
+	app.Options = options
 
 	app.adapterID = app.Options.AdapterID
 	app.services = make(map[dbus.ObjectPath]*Service)
@@ -121,6 +130,9 @@ func (app *App) init() error {
 
 // GenerateUUID generate a 128bit UUID
 func (app *App) GenerateUUID(uuidVal string) string {
+	if len(uuidVal) > 8 {
+		return uuidVal
+	}
 	base := app.Options.UUID
 	if len(uuidVal) == 8 {
 		base = ""
