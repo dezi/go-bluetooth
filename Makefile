@@ -1,7 +1,7 @@
 
 .PHONY: gen
 
-BLUEZ_VERSION ?= 5.53
+BLUEZ_VERSION ?= 5.60
 FILTER ?=
 
 DOCKER_PARAMS :=  --privileged -it --rm \
@@ -80,3 +80,15 @@ bluez-5.54/gen:
 
 bluez-5.55/gen:
 	BLUEZ_VERSION=5.55 make gen/clean gen
+
+bluez-5.62/gen:
+	BLUEZ_VERSION=5.62 make gen/clean gen
+
+bluez-5.60/gen:
+	BLUEZ_VERSION=5.60 make gen/clean gen
+
+bluez-5.64/gen:
+	BLUEZ_VERSION=5.64 make gen/clean gen
+
+bluez-5.65/gen:
+	BLUEZ_VERSION=5.65 make gen/clean gen

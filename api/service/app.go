@@ -247,4 +247,11 @@ func (app *App) Close() {
 			log.Warnf("GattManager1.UnregisterApplication: %s", err1)
 		}
 	}
+
+	if app.conn != nil {
+		err := app.conn.Close()
+		if err != nil {
+			log.Warnf("dbus.Conn.Close:: %s", err)
+		}
+	}
 }

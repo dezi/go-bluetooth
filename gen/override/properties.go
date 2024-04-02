@@ -11,6 +11,10 @@ var PropertyTypes = map[string]map[string]string{
 	"org.bluez.Device1": {
 		"ServiceData":      "map[string]interface{}",
 		"ManufacturerData": "map[uint16]interface{}",
+		"Sets":             "[]SetsItem",
+	},
+	"org.bluez.DeviceSet1": {
+		"Devices": "[]dbus.ObjectPath",
 	},
 	"org.bluez.GattCharacteristic1": {
 		"Value":          "[]byte `dbus:\"emit\"`",
@@ -37,5 +41,12 @@ var PropertyTypes = map[string]map[string]string{
 		"ServiceData": "map[string]interface{}",
 		// SecondaryChannel, if set on 5.54 cause a parsing exception
 		"SecondaryChannel": "string `dbus:\"omitEmpty\"`",
+	},
+	"org.bluez.AdvertisementMonitor1": {
+		// array{(uint8, uint8, array{byte})}
+		"Patterns": "[]Pattern",
+	},
+	"org.bluez.MediaPlayer1": {
+		"Track": "Track",
 	},
 }
