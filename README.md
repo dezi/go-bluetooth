@@ -1,4 +1,4 @@
-# go-bluetooth fork by dezi rev 1
+# go-bluetooth fork by dezi rev 2
 
 ##  ARCHIVED REPOSITORY
 
