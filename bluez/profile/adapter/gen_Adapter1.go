@@ -180,9 +180,19 @@ type Adapter1Properties struct {
 	Name string
 
 	/*
-			Manufacturer string The Bluetooth manufacturer.
+		Manufacturer uint16 The Bluetooth manufacturer.
 	*/
 	Manufacturer uint16
+
+	/*
+		PowerState uint16 The Bluetooth power state.
+	*/
+	PowerState uint16
+
+	/*
+		Version uint16 The Bluetooth version.
+	*/
+	Version uint16
 
 	/*
 		Pairable Switch an adapter to pairable or non-pairable. This is
