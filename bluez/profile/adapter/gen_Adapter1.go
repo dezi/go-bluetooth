@@ -180,6 +180,11 @@ type Adapter1Properties struct {
 	Name string
 
 	/*
+			Manufacturer string The Bluetooth manufacturer.
+	*/
+	Manufacturer string
+
+	/*
 		Pairable Switch an adapter to pairable or non-pairable. This is
 				a global setting and should only be used by the
 				settings application.
