@@ -188,6 +188,11 @@ type Device1Properties struct {
 	Paired bool
 
 	/*
+		Bonded Indicates if the remote device is bonded.
+	*/
+	Bonded bool
+
+	/*
 		RSSI Received Signal Strength Indicator of the remote
 				device (inquiry or advertising).
 	*/
