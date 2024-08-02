@@ -182,7 +182,7 @@ type Adapter1Properties struct {
 	/*
 			Manufacturer string The Bluetooth manufacturer.
 	*/
-	Manufacturer string
+	Manufacturer uint16
 
 	/*
 		Pairable Switch an adapter to pairable or non-pairable. This is
